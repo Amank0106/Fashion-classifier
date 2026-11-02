@@ -15,7 +15,6 @@ model = cnn()
 state = torch.load("fashion2.pth", map_location="cpu", weights_only=True)
 model.load_state_dict(state)
 model.eval()
-
 classes = [
     "T-shirt/top", "Trouser", "Pullover",
     "Dress", "Coat", "Sandal", "Shirt",

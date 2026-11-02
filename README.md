@@ -2,6 +2,12 @@
 
 A deep learning-based image classification application that predicts the category of a clothing item from an uploaded image. The project uses a **Convolutional Neural Network (CNN)** built with PyTorch and a **FastAPI** backend to serve predictions through a simple web interface.
 
+## 🚀 Live Demo
+
+**[Try FashionAI](https://fashionai-bvoc.onrender.com)**
+
+Upload a clothing image and let the trained CNN predict its category!
+
 ## 🖥️ Application Preview
 
 <img src="images/image.png" alt="FashionAI Application Preview" width="100%">
@@ -26,6 +32,7 @@ A deep learning-based image classification application that predicts the categor
 | Frontend | HTML, CSS, JavaScript |
 | Image Processing | Pillow, torchvision |
 | Server | Uvicorn |
+| Deployment | Render |
 
 ## 📊 Dataset
 
@@ -130,7 +137,7 @@ Feature Map
 | Linear + ReLU | 128 → 64 | 64 |
 | Output Linear | 64 → 10 | 10 |
 
-**Why this architecture?**
+### Why This Architecture?
 
 - Convolutional layers learn spatial features such as edges, textures, and clothing patterns.
 - Batch Normalization helps stabilize the training process.
@@ -161,14 +168,14 @@ The model was trained using the following configuration:
 
 <img src="images/testing.png" alt="CNN Testing Performance" width="100%">
 
-<text>**Test Accuracy: 86.33%**</text>
+**Test Accuracy: 86.33%**
 
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/Amank0106/YOUR_REPOSITORY.git
 cd image_classifier
 ```
 
@@ -256,7 +263,6 @@ image_classifier/
 - Experiment with more advanced CNN architectures.
 - Explore additional data augmentation techniques.
 - Improve generalization on real-world clothing images.
-- Deploy the application to a cloud hosting platform.
 
 ## 👨‍💻 Author
 
@@ -264,7 +270,7 @@ image_classifier/
 
 B.Tech — Electronics and Communication Engineering
 
-[GitHub](https://github.com/Amank0106) · [LinkedIn](https://www.linkedin.com/amankumar016)
+[GitHub](https://github.com/Amank0106) · [LinkedIn](https://www.linkedin.com/in/amankumar016/)
 
 ---
 
