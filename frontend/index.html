@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,31 +26,31 @@
         <a href="#home">Home</a>
         <a href="#about">About Model</a>
         <a href="#how">How It Works</a>
-        <a class="icon-link" href="https://github.com/your-username/Amank0106" target="_blank" rel="noopener" aria-label="GitHub repository">
+        <a class="icon-link" href="https://github.com/Amank0106/Fashion-classifier" target="_blank" rel="noopener" aria-label="GitHub repository">
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
         </a>
       </nav>
     </div>
   </header>
-
+ 
   <main>
     <section class="hero wrap" id="home">
       <p class="tech-label">Powered by PyTorch · CNN · Fashion-MNIST</p>
       <h1>Understand Fashion Through AI.</h1>
       <p class="lead">Upload an image and let our convolutional neural network identify its fashion category in seconds.</p>
     </section>
-
+ 
     <section class="wrap tool" aria-labelledby="upload-title">
       <div class="card upload-card">
         <h2 id="upload-title" class="sr-only">Upload an image</h2>
-
+ 
         <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose an image to upload, or drag and drop one here">
           <input id="file-input" type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" hidden>
           <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
           <p class="dz-title">Drop an image here, or <span class="link">browse files</span></p>
           <p class="dz-hint">PNG, JPG or JPEG, up to 5 MB</p>
         </div>
-
+ 
         <div id="preview" class="preview" hidden>
           <img id="preview-img" alt="Preview of the uploaded image">
           <div class="file-meta">
@@ -61,15 +62,15 @@
             </div>
           </div>
         </div>
-
+ 
         <p id="form-error" class="alert" role="alert" hidden></p>
-
+ 
         <button type="button" id="analyze-btn" class="btn btn-primary" disabled>
           <span class="spinner" aria-hidden="true"></span>
           <span id="analyze-label">Analyze Image</span>
         </button>
       </div>
-
+ 
       <div id="result" class="card result-card" hidden aria-live="polite">
         <h2 class="result-heading">Prediction</h2>
         <div class="result-grid">
@@ -96,7 +97,7 @@
         </div>
       </div>
     </section>
-
+ 
     <section class="wrap section" id="how">
       <h2>How it works</h2>
       <ol class="steps">
@@ -117,9 +118,11 @@
         </li>
       </ol>
     </section>
-
+ 
     <section class="wrap section" id="about">
       <h2>About the model</h2>
+      <p class="section-lead">A custom CNN with two convolution blocks and three fully connected layers, trained from scratch on Fashion-MNIST.</p>
+ 
       <dl class="card specs">
         <div><dt>Model</dt><dd>Convolutional Neural Network</dd></div>
         <div><dt>Framework</dt><dd>PyTorch</dd></div>
@@ -130,9 +133,41 @@
         <div><dt>Backend</dt><dd>FastAPI</dd></div>
         <div><dt>Inference</dt><dd>CPU or GPU, depending on backend configuration</dd></div>
       </dl>
+ 
+      <div class="model-grid">
+        <div class="card panel">
+          <h3>Architecture</h3>
+          <ol class="layers">
+            <li><span>Input image</span><code>1 × 28 × 28</code></li>
+            <li><span>Conv2D 1 → 32, 3 × 3, same padding, BatchNorm, ReLU, MaxPool 2 × 2</span><code>32 × 14 × 14</code></li>
+            <li><span>Conv2D 32 → 64, 3 × 3, same padding, BatchNorm, ReLU, MaxPool 2 × 2</span><code>64 × 7 × 7</code></li>
+            <li><span>Flatten</span><code>3136</code></li>
+            <li><span>Linear 3136 → 128, ReLU</span><code>128</code></li>
+            <li><span>Linear 128 → 64, ReLU</span><code>64</code></li>
+            <li><span>Linear 64 → 10, output logits</span><code>10</code></li>
+          </ol>
+        </div>
+ 
+        <div class="card panel">
+          <h3>Training</h3>
+          <dl class="kv">
+            <div><dt>Optimizer</dt><dd>SGD</dd></div>
+            <div><dt>Learning rate</dt><dd>0.01</dd></div>
+            <div><dt>Weight decay</dt><dd>0.0001</dd></div>
+            <div><dt>Loss function</dt><dd>CrossEntropyLoss</dd></div>
+            <div><dt>Batch size</dt><dd>32</dd></div>
+            <div><dt>Epochs</dt><dd>100</dd></div>
+          </dl>
+          <div class="stat">
+            <strong>86.33%</strong>
+            <span>Test accuracy on Fashion-MNIST</span>
+          </div>
+          <p class="small muted">Fashion-MNIST images are small grayscale shots on a plain background. Photos with busy backgrounds or unusual angles can give weaker predictions.</p>
+        </div>
+      </div>
     </section>
   </main>
-
+ 
   <footer class="footer">
     <div class="wrap footer-inner">
       <div>
@@ -140,10 +175,14 @@
         <p>Built with PyTorch and FastAPI.</p>
         <p class="small muted">Predictions are model estimates and may be wrong, especially for photos that look different from Fashion-MNIST images.</p>
       </div>
-      <a href="https://github.com/your-username/Amank0106" target="_blank" rel="noopener">GitHub repository</a>
+      <a href="https://github.com/Amank0106/Fashion-classifier" target="_blank" rel="noopener">GitHub repository</a>
     </div>
   </footer>
-
+ 
   <script src="/static/app.js" defer></script>
 </body>
 </html>
+ 
+
+
+
